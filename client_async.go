@@ -33,7 +33,7 @@ func (c *Client) loop() {
 	log.Println("loop ended")
 }
 
-func (c *Client) SendAsync(pn *PushNotification) {
+func (c *Client) SendAsync(pn *PushNotification, fn func(string, *PushNotification, *PushNotificationResponse)) {
 	c.sendChan <- pn
 }
 func (c *Client) recvLoop(closeChan, resetChan chan bool) {
