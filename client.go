@@ -32,6 +32,8 @@ type Client struct {
 	CertificateBase64 string
 	KeyFile           string
 	KeyBase64         string
+	pConn             *tls.Conn // persistent connection to APN server
+	sendChan          chan *PushNotification
 }
 
 // BareClient can be used to set the contents of your
